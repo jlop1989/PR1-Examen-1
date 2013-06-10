@@ -10,20 +10,36 @@ public class PoligonoTest {
     private Poligono c;
     
     @Before
-    public void initiallize(){
+    public void initiallizeA(){
+        a= new Poligono();
+        assertNotNull("Error Constructor\n", a);
+    }
+    
+    @Before
+    public void initiallizeB(){
         try {
-            a= new Poligono();
             b = new Poligono();
             b.insertaVértice(0, new Vertice(0, 0));
             b.insertaVértice(1, new Vertice(0, 1));
-            c = new Poligono();
-            c.insertaVértice(0, new Vertice(0, 0));
-            c.insertaVértice(1, new Vertice(0, 1));
-            c.insertaVértice(2, new Vertice(1, 0));
+            assertNotNull("Error Constructor\n", b);
         } catch (Exception ex) {
             fail("Error InsertaVertice\n");
         }
     }
+    
+    @Before
+    public void initiallizeC(){
+        try {
+            c = new Poligono();
+            c.insertaVértice(0, new Vertice(0, 0));
+            c.insertaVértice(1, new Vertice(0, 1));
+            c.insertaVértice(2, new Vertice(1, 0));
+            assertNotNull("Error Constructor\n", c);
+        } catch (Exception ex) {
+            fail("Error InsertaVertice\n");
+        }
+    }
+    
     @Test
     public void testConstructor() {
         assertNotNull("Error Constructor\n",a);
